@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #11142b; 
+    overflow: hidden;
+    color: #ffffff;
+    padding: 10px;
+    position: relative;
+} */
+body {
+    height: 100dvh; /* 100% strict device height */
+    width: 100VW;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #11142b;
+    overflow: hidden; /* 🛑 Body ka poora scroll yahan block kar diya hai */
+    color: #ffffff;
+    padding: 10px 10px;
+    position: relative;
+}
+
+
+/* 🟠 Glowing Background Orbs */
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(8px);
+}
+.orb-1 {
+    width: 350px; height: 350px;
+    background: linear-gradient(135deg, #ff9a44, #fc6076);
+    top: -100px; left: -100px;
+}
+.orb-2 {
+    width: 250px; height: 250px;
+    background: linear-gradient(135deg, #ff9a44, #fc6076);
+    bottom: -50px; right: -50px;
+}
+.orb-3 {
+    width: 150px; height: 150px;
+    background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+    bottom: 20%; left: -50px;
+}
+.orb-4 {
+    width: 80px; height: 80px;
+    background: linear-gradient(135deg, #ff9a44, #fc6076);
+    top: 50px; right: 20px;
+}
+
+/* 🪟 Mobile App Glass Container */
+/* .glass-app {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 35px;
+    padding: 30px 25px;
+    width: 100%;
+    max-width: 380px;
+    height: 80vh;
+    min-height: 650px;
+    max-height: 800px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+} */
+ .glass-app {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 30px;
+    padding: 20px 20px;
+    width: 100%;
+    max-width: 380px;
+    height: 100dvh;        /* 📱 Screen ki height ka 94% lega (ekdum fit) */
+    max-height: 750px;   /* Desktop par jyada lamba nahi hoga */
+    min-height: unset;   /* ❌ Us rigid 650px ko hata diya hai jo overflow kar raha tha */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-y: auto;    /* Agar andar zyada content ho tabhi scroll hoga */
+    overflow-x: hidden;
+    margin-top: 0px !important;
+}
+
+/* Hide scrollbar for clean app look */
+.glass-app::-webkit-scrollbar { display: none; }
+
+/* 📱 Top Nav Icons */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+/* Hamburger Menu Icon */
+.icon-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.icon-menu span {
+    display: block;
+    width: 25px; height: 2px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 2px;
+}
+/* User Avatar Outline Icon */
+.icon-user {
+    width: 30px; height: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+}
+.user-head {
+    width: 12px; height: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+}
+.user-body {
+    width: 20px; height: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 10px 10px 0 0;
+    border-bottom: none;
+}
+
+/* Screen Logic */
+.screen { display: none; text-align: center; height: 100%; }
+.screen.active { display: flex; flex-direction: column; animation: fadeIn 0.5s ease forwards; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Typography */
+.app-title {
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.hero-space {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px;
+}
+.subtitle {
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* 💊 Inputs (Pill shaped, transparent) */
+.input-group { margin-bottom: 15px; }
+.glass-input {
+    width: 100%;
+    padding: 15px 25px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+.glass-input:focus { border-color: #ff9a44; background: rgba(255, 255, 255, 0.05); }
+.glass-input::placeholder { color: rgba(255, 255, 255, 0.5); }
+option { background: #11142b; color: #fff; } /* Dropdown options */
+
+/* 🔥 The "let's go!" Gradient Button */
+.gradient-btn {
+    width: 100%;
+    padding: 16px;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(90deg, #ffb347 0%, #ff4b8b 100%);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(255, 75, 139, 0.4);
+    margin-top: 15px;
+    transition: 0.3s;
+}
+.gradient-btn:active { transform: scale(0.96); }
+
+/* Greeting Screen */
+.greeting-heading { font-size: 28px; margin-top: 40px; color: #ffb347; }
+.quote-box { margin-top: 30px; background: rgba(0,0,0,0.2); padding: 20px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
+.quote { font-size: 16px; font-style: italic; line-height: 1.6; color: rgba(255,255,255,0.8); }
+
+/* Learning Screen */
+.step-title { font-size: 12px; color: #ff4b8b; letter-spacing: 2px; margin-bottom: 5px; }
+.question-text { font-size: 16px; letter-spacing: 1px; font-weight: 500; margin-bottom: 25px; }
+
+.image-wrapper {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 20px;
+}
+#object-image { width: 100%; height: 180px; object-fit: cover; border-radius: 15px; }
+
+#timer-display { font-size: 60px; color: #ffb347; margin: 10px 0; font-weight: 700; }
+
+.answer-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+#correct-word { color: #ffb347; font-size: 28px; margin-bottom: 10px; }
+#word-meaning { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+
+/* Secondary Pause Button */
+.glass-btn {
+    width: 100%; padding: 15px; border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    background: rgba(0, 0, 0, 0.3); color: #fff;
+    margin-top: auto; /* Pushes button to bottom */
+}
+
+.hidden { display: none !important; }
+
+
+/* 🌀 CSS Loading Spinner & Overlay */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 15, 20, 0.7);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: opacity 0.3s ease;
+}
+
+.loading-spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-top: 3px solid #ffffff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+    color: #ffffff;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+/* 🎨 Custom Glass-Matching Dropdown Options Style */
+.glass-input option {
+    background: #16193b; /* App ke dark glass background se match karta hua color */
+    color: #ffffff;      /* Text ka rang safed */
+    padding: 12px 15px;  /* Options ke beech mein acchi spacing */
+    font-size: 14px;
+}
+
+/* Jab dropdown par hover ho */
+.glass-input option:hover, 
+.glass-input option:focus {
+    background: #ff9a44; /* App ke accent gradient ka orange color */
+    color: #ffffff;
+}
+
+/* 🌙 Page khulte hi white flash hone se rokne ke liye */
+html, body {
+    background-color: #0f1123 !important; /* Aapki app ka dark background color */
+    color: #ffffff !important;
+    margin: 0;
+    padding: 0;
+}

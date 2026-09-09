@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Buddy 🦉</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎴</text></svg>">
+    
+</head>
+
+<body>
+    <!-- Background Glowing Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+
+    <!-- Main App Glass Box -->
+    <div class="glass-app">
+
+        <!-- App Top Navigation -->
+        <div class="top-nav">
+            <div class="icon-menu">
+                <span></span><span></span><span></span>
+            </div>
+            <div class="icon-user">
+                <div class="user-head"></div>
+                <div class="user-body"></div>
+            </div>
+        </div>
+
+        <!-- 1️⃣ HOME SCREEN -->
+        <div id="home-screen" class="screen active">
+            <h2 class="app-title">LEARN BUDDY 🦉</h2>
+
+            <div class="hero-space">
+                <p class="subtitle">✨ YOUR LEARNING<br>STARTS HERE 🚀</p>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="userName" class="glass-input" placeholder="Your Name" autocomplete="off">
+            </div>
+
+            <div class="input-group">
+                <select id="category" class="glass-input">
+                    <!-- Google Sheet se categories yahan automatic aayengi -->
+                </select>
+            </div>
+
+            <button class="gradient-btn" onclick="startApp()">let's go!</button>
+        </div>
+
+        <!-- 2️⃣ GREETING & MOTIVATION SCREEN -->
+        <div id="greeting-screen" class="screen">
+            <h1 id="greeting-text" class="greeting-heading">Hello!</h1>
+            <div class="quote-box">
+                <p id="quote-text" class="quote"></p>
+            </div>
+        </div>
+
+        <!-- 3️⃣ MAIN LEARNING SCREEN -->
+        <!-- 3️⃣ MAIN LEARNING SCREEN -->
+        <div id="learning-screen" class="screen">
+            <h3 class="step-title">STEP 01</h3>
+            <h2 class="question-text">WHAT IS THIS CALLED?</h2>
+
+            <!-- 🖼️ Image ab pehle se hi yahan dikhegi -->
+            <!-- 🖼️ Image Box with CSS Loading Overlay -->
+            <div class="image-box" style="margin: 15px 0; position: relative;">
+                <!-- Naya Code (Badi Image Ke Liye) -->
+<img id="word-image" src="" alt="Word Image"
+    style="width: 100%; max-width: 330px; height: 230px; object-fit: contain; border-radius: 12px; background: rgba(255, 255, 255, 0.05); box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+
+                <!-- CSS Loading Screen Overlay -->
+                <div id="image-loader" class="loading-overlay hidden">
+                    <div class="loading-spinner"></div>
+                    <span class="loading-text">LOADING...</span>
+                </div>
+            </div>
+
+            <!-- Timer ab image ke niche chalega -->
+            <div class="timer-wrapper">
+                <h1 id="timer-display"></h1>
+            </div>
+
+            <!-- Answer Container mein sirf word aayega jo timer ke baad dikhega -->
+            <div id="answer-container" class="hidden answer-box">
+                <h1 id="correct-word">Spoon</h1>
+            </div>
+
+            <div class="controls">
+                <button id="pause-btn" class="glass-btn pause-btn" onclick="togglePause()">Pause</button>
+            </div>
+            <!-- 3️⃣ MAIN LEARNING SCREEN CONTROLS -->
+            <div class="controls"
+                style="display: flex; gap: 10px; justify-content: center; align-items: center; margin-top: 15px;">
+                <button id="prev-btn" class="glass-btn" onclick="prevWord()"
+                    style="padding: 10px 15px; cursor: pointer;">⬅️ Prev</button>
+                <!-- <button id="pause-btn" class="glass-btn pause-btn" onclick="togglePause()" style="padding: 10px 15px; cursor: pointer;">Pause</button> -->
+                <button id="next-btn" class="glass-btn" onclick="nextWord()"
+                    style="padding: 10px 15px; cursor: pointer;">Next ➡️</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
