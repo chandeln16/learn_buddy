@@ -8,7 +8,7 @@ let isPaused = false;
 let currentTimerInterval = null;
 
 // 🔗 Aapke local Python backend ka address
-const BACKEND_URL = "http://127.0.0.1:8000";
+const BACKEND_URL = "https://learn-buddy-o4sh.onrender.com";
 
 // 1️⃣ Backend se Google Sheet ka data lana
 async function getSheetText() {
