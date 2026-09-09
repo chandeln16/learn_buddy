@@ -295,24 +295,24 @@ option { background: #11142b; color: #fff; } /* Dropdown options */
 }
 
 /* 🎨 Custom Glass-Matching Dropdown Options Style */
-.glass-input option {
+/*.glass-input option {
     background: #16193b; /* App ke dark glass background se match karta hua color */
-    color: #ffffff;      /* Text ka rang safed */
-    padding: 12px 15px;  /* Options ke beech mein acchi spacing */
-    font-size: 14px;
+ /*   color: #ffffff;      /* Text ka rang safed */
+  /*  padding: 12px 15px;  /* Options ke beech mein acchi spacing */
+  /*  font-size: 14px; /*
 }
 
 /* Jab dropdown par hover ho */
-.glass-input option:hover, 
+/* .glass-input option:hover, 
 .glass-input option:focus {
     background: #ff9a44; /* App ke accent gradient ka orange color */
-    color: #ffffff;
+/*    color: #ffffff;
 }
 
 /* 🌙 Page khulte hi white flash hone se rokne ke liye */
-html, body {
+/*html, body {
     background-color: #0f1123 !important; /* Aapki app ka dark background color */
-    color: #ffffff !important;
-    margin: 0;
-    padding: 0;
-}
+   /* color: #ffffff !important; */
+ /*   margin: 0; */
+ /*   padding: 0; */
+/*}*/
